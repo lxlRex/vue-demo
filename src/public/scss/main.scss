@@ -1,0 +1,203 @@
+@charset "utf-8";
+// @function pxTorem($px){
+//     @return $px / 37.5 * 1rem;
+// }
+@mixin ellipsis($lines: 1,$width: 100%){
+    overflow: hidden;
+    width: $width;
+    @if($lines == 1){
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    @else{
+        display:-webkit-box;
+        display:box;
+        -webkit-line-clamp: $lines;
+        line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+    }
+}
+
+
+@mixin center($direction: both){
+    position: absolute;
+    @if $direction == both {
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%,-50%,0);
+    }
+    @else if $direction == vertical{
+        top: 50%;
+        transform: translate3d(0,-50%,0);
+    }
+    @else if $direction == horizontal{
+        left: 50%;
+        transform: translate3d(-50%,0,0);
+    }
+}
+@mixin box-center ($align: center,$justify: center) {
+    display: flex;
+    @if ($align != false) {
+        align-items: $align;
+    }
+    @if ($justify != false){
+        justify-content: $justify;
+    }
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+}
+
+.flex_1 {
+    flex: 1;
+}
+
+/*0.5px thin border pure CSS start*/
+
+.thin-border,
+.thin-border-top,
+.thin-border-right,
+.thin-border-bottom,
+.thin-border-left,
+.thin-border-row,
+.thin-border-col {
+    position: relative;
+}
+
+.thin-border:before,
+.thin-border-top:before,
+.thin-border-right:before,
+.thin-border-bottom:before,
+.thin-border-left:before,
+.thin-border-row:before,
+.thin-border-row:after,
+.thin-border-col:before,
+.thin-border-col:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0 solid #eee;
+}
+
+.thin-border:before,
+.thin-border-top:before,
+.thin-border-left:before,
+.thin-border-row:before,
+.thin-border-col:before {
+    top: 0;
+    left: 0;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+
+.thin-border-right:before,
+.thin-border-col:after {
+    top: 0;
+    right: 0;
+    -moz-transform-origin: right top;
+    -ms-transform-origin: right top;
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+}
+
+.thin-border-bottom:before,
+.thin-border-row:after {
+    bottom: 0;
+    left: 0;
+    -moz-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+}
+
+.thin-border:before {
+    width: 200%;
+    height: 200%;
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+.thin-border-top:before,
+.thin-border-bottom:before,
+.thin-border-row:before,
+.thin-border-row:after {
+    width: 100%;
+    height: 0;
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+.thin-border-right:before,
+.thin-border-left:before,
+.thin-border-col:before,
+.thin-border-col:after {
+    width: 0;
+    height: 100%;
+    -moz-transform: scaleX(0.5);
+    -ms-transform: scaleX(0.5);
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}
+
+.thin-border:before {
+    border-width: 1px;
+}
+
+.thin-border-top:before,
+.thin-border-row:before {
+    border-top-width: 1px;
+}
+
+.thin-border-right:before,
+.thin-border-col:after {
+    border-right-width: 1px;
+}
+
+.thin-border-bottom:before,
+.thin-border-row:after {
+    border-bottom-width: 1px;
+}
+
+.thin-border-left:before,
+.thin-border-col:before {
+    border-left-width: 1px;
+}
+
+.thin-border .thin-border-content {
+    position: relative;
+    z-index: 2;
+}
+
+.thin-border.btn-corner:before {
+    border-radius: .5em;
+}
+/*0.5px thin border pure CSS end*/
+
+
+
+
+
+.color-999{
+    color: #999 !important;
+}
+.g-empty {
+  color: #666;
+  font-size: 0.4rem;
+  text-align: center;
+  margin-top: 100px;
+}
+
+
