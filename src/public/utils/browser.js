@@ -1,5 +1,5 @@
-const u = navigator.userAgent;
-const app = navigator.appVersion;
+const u = navigator.userAgent
+// const app = navigator.appVersion
 
 export default {
   // 内核
@@ -23,9 +23,9 @@ export default {
   // 系统或平台
   Android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1,
   iOS: u.indexOf('like Mac OS X') > -1,
-  ios: !!u.match(/\(i[^;]+;( u;)? cpu.+mac os x/), //ios终端
-  iPad: u.indexOf('ipad') > -1, //是否iPad
-  iPhone: u.indexOf('iphone') > -1, //是否为iPhone
+  ios: !!u.match(/\(i[^;]+;( u;)? cpu.+mac os x/), // ios终端
+  iPad: u.indexOf('ipad') > -1, // 是否iPad
+  iPhone: u.indexOf('iphone') > -1, // 是否为iPhone
   Windows: u.indexOf('Windows') > -1,
   Linux: u.indexOf('Linux') > -1 || u.indexOf('X11') > -1,
   MacOS: u.indexOf('Macintosh') > -1,
