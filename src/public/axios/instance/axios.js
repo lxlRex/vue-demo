@@ -3,7 +3,7 @@ import { TIMEOUT, TEST_URL, PRO_URL, ApiStatus } from '../../config'
 import User from '@/public/utils/User'
 import LoadingInterceptor from '../interceptors/loading-interceptor'
 import AlertInterceptor from '../interceptors/alert-interceptor'
-import { LMessageBox } from '@/public/components'
+import { MessageBox } from '@/public/components'
 
 // 添加公用配置
 axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? PRO_URL : TEST_URL
@@ -31,7 +31,7 @@ instance.interceptors.response.use(
     let { code, message } = response.data
 
     if (code === ApiStatus.noLogin.code) {
-      LMessageBox.alert(message).then(() => {
+      MessageBox.alert(message).then(() => {
         User.toLogin()
       })
       return Promise.reject(response)

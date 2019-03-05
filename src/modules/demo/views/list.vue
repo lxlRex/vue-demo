@@ -57,7 +57,7 @@
 <script>
 // import { axios } from '@/public/axios'
 // import { HomepagePaginate } from './api'
-import { LMessageBox, LToast, XButton } from '@/public/components'
+import { MessageBox, Toast, XButton } from '@/public/components'
 import MusicPlayer from './music-player'
 // import XButton from '@/public/components/button'
 import XTextarea from '@/public/components/textarea'
@@ -103,7 +103,6 @@ export default{
   },
 
   components: {
-    // LIcon
     MusicPlayer,
     XButton,
     XTextarea,
@@ -151,12 +150,11 @@ export default{
     },
 
     show () {
-      // LToast.show('asd as das')
-      LMessageBox.alert(123)
+      MessageBox.alert(123)
     },
 
     qwe () {
-      LToast.show('21333')
+      Toast.show('21333')
     }
   }
 }

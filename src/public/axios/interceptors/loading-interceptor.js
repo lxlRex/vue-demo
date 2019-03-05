@@ -1,25 +1,25 @@
-import { LLoading } from '@/public/components'
+import { Loading } from '@/public/components'
 
 const install = axios => {
   axios.interceptors.request.use(
     config => {
       let { showLoading = true } = config
-      if (showLoading) LLoading.show()
+      if (showLoading) Loading.show()
       return config
     },
     error => {
-      LLoading.close()
+      Loading.close()
       return Promise.reject(error)
     }
   )
 
   axios.interceptors.response.use(
     response => {
-      LLoading.close()
+      Loading.close()
       return response.data
     },
     error => {
-      LLoading.close()
+      Loading.close()
       return Promise.reject(error)
     }
   )
