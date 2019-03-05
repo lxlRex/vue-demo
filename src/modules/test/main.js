@@ -5,33 +5,13 @@ import App from './App'
 import router from './router'
 
 import mixins from '@/public/mixins'
-// import plugins from '@/public/plugins'
 
-// import initPlus from '@/mui/plus'
-
-// import '@/public/scss/main.scss'
-
-
-Vue.mixin(mixins);
-// Vue.use(plugins);
+Vue.mixin(mixins)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  render: h => h('App'),
+  render: h => h('App')
 })
-
-// initPlus.then(plus => {
-// 	let back = () => {
-// 		let hash = window.location.hash;
-
-// 		if(hash !== '#/list'){
-// 			window.history.go(-1);
-// 		}else{
-// 			plus.webview.currentWebview().hide();
-// 		}
-// 	}
-// 	plus.key.addEventListener('backbutton',back, true);
-// });

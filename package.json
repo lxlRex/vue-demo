@@ -11,6 +11,7 @@
     "sftp": "node deploy/build2ftp.js"
   },
   "dependencies": {
+    "SassMagic": "https://github.com/W3cplus/SassMagic.git",
     "autosize": "^4.0.2",
     "axios": "^0.18.0",
     "better-scroll": "^1.13.4",
