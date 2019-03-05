@@ -13,7 +13,7 @@ const webpackConfig = require('../build/webpack.prod.conf')
 const utils = require('../build/utils')
 
 const deployConfig = require('./config')
-const WebpackSftpClient = require('webpack-sftp-client');
+const WebpackSftpClient = require('webpack-sftp-client')
 const { getProConfig } = require('../build/mpa-config')
 
 // 添加上传配置
@@ -22,8 +22,8 @@ webpackConfig.plugins.push(
     path: config.build.assetsRoot,
     // Show details of uploading for files
     verbose: true
-  },deployConfig.ftp))
-);
+  }, deployConfig.ftp))
+)
 
 // const spinner = ora('building for production...')
 // spinner.start()
@@ -32,16 +32,14 @@ rm(path.join(config.build.assetsRoot), err => {
   if (err) throw err
 
   utils.getModules().forEach(module => {
-
     // 添加开发配置
     let { plugin, entry, output } = getProConfig(module)
     webpackConfig.entry = entry
     webpackConfig.output = output
     webpackConfig.plugins = webpackConfig.plugins.filter(plugin => {
-      return plugin.constructor.name !== 'HtmlWebpackPlugin';
+      return plugin.constructor.name !== 'HtmlWebpackPlugin'
     });
     webpackConfig.plugins.push(plugin)
-
 
     webpack(webpackConfig, (err, stats) => {
       // spinner.stop()
@@ -66,5 +64,4 @@ rm(path.join(config.build.assetsRoot), err => {
       ))
     })
   })
-   
 })
