@@ -1,51 +1,4 @@
 @charset "utf-8";
-// @function pxTorem($px){
-//     @return $px / 37.5 * 1rem;
-// }
-@mixin ellipsis($lines: 1,$width: 100%){
-  overflow: hidden;
-  width: $width;
-  @if($lines == 1){
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  @else{
-    display:-webkit-box;
-    display:box;
-    -webkit-line-clamp: $lines;
-    line-clamp: $lines;
-    -webkit-box-orient: vertical;
-    box-orient: vertical;
-  }
-}
-
-
-@mixin center($direction: both){
-  position: absolute;
-  @if $direction == both {
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%,-50%,0);
-  }
-  @else if $direction == vertical{
-    top: 50%;
-    transform: translate3d(0,-50%,0);
-  }
-  @else if $direction == horizontal{
-    left: 50%;
-    transform: translate3d(-50%,0,0);
-  }
-}
-@mixin box-center ($align: center,$justify: center) {
-  display: flex;
-  @if ($align != false) {
-    align-items: $align;
-  }
-  @if ($justify != false){
-    justify-content: $justify;
-  }
-}
-
 .flex {
   display: flex;
   width: 100%;
@@ -185,19 +138,3 @@
   border-radius: .5em;
 }
 /*0.5px thin border pure CSS end*/
-
-
-
-
-
-.color-999{
-  color: #999 !important;
-}
-.g-empty {
-  color: #666;
-  font-size: 0.4rem;
-  text-align: center;
-  margin-top: 100px;
-}
-
-
