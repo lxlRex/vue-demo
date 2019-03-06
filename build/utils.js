@@ -4,7 +4,8 @@ const fs = require('fs')
 const config = require('../config')
 const packageConfig = require('../package.json')
 const argvParse = require('argv-parse')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
