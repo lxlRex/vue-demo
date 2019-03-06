@@ -1,8 +1,7 @@
-import router from '../../router';
+import router from '../../router'
 
 const USER_INFO = 'user_info'
 export default class User {
-
   static token = ''
 
   /**
@@ -18,7 +17,7 @@ export default class User {
    *@ param userInfo {Object}
    */
   static login (userInfo) {
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    localStorage.setItem('userInfo', JSON.stringify(userInfo))
     Object.assign(this, userInfo)
     return Promise.reslove(userInfo)
   }
@@ -27,9 +26,9 @@ export default class User {
    *@ desc 登出清空token
    */
   static async logout () {
-    let userInfo = await this.getUserInfo();
-    delete userInfo.token;
-    localStorage.setItem(USER_INFO, JSON.stringify(userInfo));
+    let userInfo = await this.getUserInfo()
+    delete userInfo.token
+    localStorage.setItem(USER_INFO, JSON.stringify(userInfo))
   }
 
   /**
@@ -40,16 +39,16 @@ export default class User {
     if (this.token) {
       return Promise.reslove(true)
     } else {
-      let { token = false } = await this.getUserInfo();
+      let { token = false } = await this.getUserInfo()
       return Promise.reslove(Boolean(token))
     }
   }
-  
+
   /**
    *@ desc 去登录
    */
   static toLogin () {
-    this.logout();
-    router.push({path: `login?backURL=${encodeURIComponent(location.href)}`});
+    this.logout()
+    router.push({path: `login?backURL=${encodeURIComponent(location.href)}`})
   }
 }

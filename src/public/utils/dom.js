@@ -1,10 +1,3 @@
-/**
- * @description: dom utils function.
- * @author: pkeros.
- * @date: 09/01/2018.
- * @mail: pkeros@vip.qq.com
- */
-
 /* istanbul ignore next */
 
 import Vue from 'vue'
