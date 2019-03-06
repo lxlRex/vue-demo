@@ -4,7 +4,7 @@
   </section>
 </template>
 <script>
-export default{
+export default {
   props: {
     show: { type: Boolean, default: false },
     scroll: { type: Boolean, default: false },

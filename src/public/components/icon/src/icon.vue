@@ -7,7 +7,7 @@
   </span>
 </template>
 <script>
-export default{
+export default {
   name: 'icon',
   props: {
     icon: String,

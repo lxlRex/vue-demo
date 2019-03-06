@@ -12,7 +12,7 @@
 <script>
 import LMask from '../../mask'
 
-export default{
+export default {
   name: 'MessageBox',
   props: {
     type: { type: String },

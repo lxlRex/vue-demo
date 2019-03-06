@@ -72,12 +72,12 @@ import XDialog from '@/public/components/dialog'
 import XScrollBox from '@/public/components/scroll-box'
 import XMask from '@/public/components/mask'
 
-export default{
+export default {
   data () {
     return {
       showmask: false,
       start: false,
-      options: [{label: '1', value: '1'}, {label: '2', value: '2'}, {label: '3', value: '3'}],
+      options: [{ label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }],
       date: '',
       aaaa: '1',
       qwre: '',
