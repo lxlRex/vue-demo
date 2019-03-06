@@ -13,7 +13,7 @@ export default {
   },
 
   props: {
-    value: { type: [Number, String], default: () => [] },
+    value: { type: [Number, String], default: '' },
     options: { type: Array, default: () => [] }
   },
 
@@ -22,7 +22,7 @@ export default {
       return this.options.map(e => {
         return {
           ...e,
-          checked: this.innerValue.indexOf(e.value) !== -1
+          checked: this.innerValue === e.value
         }
       })
     }
@@ -39,6 +39,7 @@ export default {
 
   methods: {
     clickHandler (i) {
+      if (this._options[i].checked) return
       this._options.forEach(({value}) => (value = false))
       this._options[i].checked = true
       this.innerValue = this._options[i].value
