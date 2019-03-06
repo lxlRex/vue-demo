@@ -41,7 +41,7 @@ exports.getDevConfig = function () {
 
   plugin.push(new FriendlyErrorsPlugin({
     compilationSuccessInfo: {
-      messages: ['访问地址↓'].concat(runningPrompt),
+      messages: runningPrompt
     },
     onErrors: config.dev.notifyOnErrors
       ? utils.createNotifierCallback()
@@ -52,7 +52,7 @@ exports.getDevConfig = function () {
 }
 
 exports.getProConfig = function (module) {
-  
+
   let entry = `./src/modules/${module}/main.js`
 
   let output = {
@@ -65,7 +65,6 @@ exports.getProConfig = function (module) {
   let plugin = new HtmlWebpackPlugin({
     filename: path.resolve(__dirname, `../dist/${module}/index.html`),
     template: path.resolve(__dirname, `../src/modules/${module}/index.html`),
-    inject: true,
     inject: true,
     minify: {
       removeComments: true,
