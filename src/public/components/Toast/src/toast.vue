@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div v-show="show" class="x-toast" >
-      <div class="x-toast__text">{{msg}}</div>
+    <div v-show="show" class="c-toast" >
+      <div class="c-toast__text">{{msg}}</div>
     </div>
   </transition>
 </template>
@@ -27,6 +27,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~SassMagic/src/mixins/BEM';
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
@@ -34,7 +35,7 @@ export default {
   opacity: 0;
 }
 
-.x-toast {
+@include b (c-toast) {
   width: 300px;
   border-radius: 5px;
   position: fixed;
@@ -43,7 +44,13 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 999;
   box-shadow: 0 1px 10px rgba(0, 0, 0, .5);
-  .x-toast__text {
+  display: none;
+
+  @include m (show) {
+    display: block;
+  }
+
+  @include e (text) {
     text-align: center;
     border-radius: 5px;
     background: rgba(0, 0, 0, .7);

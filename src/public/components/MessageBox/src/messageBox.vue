@@ -1,16 +1,16 @@
 <template>
-  <l-mask :show.sync="show">
+  <c-mask :show.sync="show">
     <div class="message-box">
       <div class="message-box__msg">{{msg}}</div>
-      <div class="flex message-box__btn">
-        <div v-if="type === 'confirm'" class="message-box__btn--cancel flex_1" @click.stop="$emit('cancel')">{{cancelBtn}}</div>
-        <div class="ok flex_1" @click.stop="$emit('confirm')">{{confirmBtn}}</div>
+      <div class="message-box__btn">
+        <div v-if="type === 'confirm'" class="message-box__btn--cancel" @click.stop="$emit('cancel')">{{cancelBtn}}</div>
+        <div class="ok" @click.stop="$emit('confirm')">{{confirmBtn}}</div>
       </div>
     </div>
-  </l-mask>
+  </c-mask>
 </template>
 <script>
-import LMask from '../../mask'
+import CMask from '../../mask'
 
 export default {
   name: 'MessageBox',
@@ -22,33 +22,41 @@ export default {
     confirmBtn: { type: String, default: '确认' }
   },
   components: {
-    LMask
+    CMask
   }
 }
 </script>
 <style lang="scss">
-.message-box{
+@import '~SassMagic/src/mixins/BEM';
+
+@include b (message-box) {
   background: #fff;
   border-radius: 5px;
   width: 300px;
-  .message-box__msg{
+
+  @include e (msg) {
     word-break: break-all;
     padding: 25px 8px;
     text-align: center;
     font-size: 14px;
     color: #333;
   }
-  .message-box__btn{
-    div{
-      color: #3577cd;
-      text-align: center;
-      line-height: 44px;
-      border-top: 1px solid #EFEFF4;
-      font-size: 14px;
-      &.message-box__btn--cancel{
-        border-right: 1px solid #EFEFF4;
-        color: #adb5bd;
-      }
+
+  @include e (btnBox) {
+    display: flex;
+  }
+
+  @include e (btn) {
+    flex: 1;
+    color: #3577cd;
+    text-align: center;
+    line-height: 44px;
+    border-top: 1px solid #EFEFF4;
+    font-size: 14px;
+
+    @include m (cancel) {
+      border-right: 1px solid #EFEFF4;
+      color: #adb5bd;
     }
   }
 }
