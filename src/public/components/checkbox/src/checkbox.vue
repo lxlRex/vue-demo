@@ -1,6 +1,11 @@
 <template>
   <div class="c-checkbox">
-    <div class="c-checkbox__item" :class="{'c-checkbox__item--checked': checked}" v-for="({label, checked}, index) in _options" :key="index" @click="clickHandler(index)">{{label}}</div>
+    <div class="c-checkbox__item"
+         :class="{'c-checkbox__item--checked': checked}" v-for="({label, checked}, index) in _options"
+         :key="index"
+         @click="clickHandler(index)">
+      {{label}}
+    </div>
   </div>
 </template>
 <script>
@@ -22,7 +27,7 @@ export default {
       return this.options.map(e => {
         return {
           ...e,
-          checked: this.innerValue.indexOf(e.value) !== -1
+          checked: this.innerValue.indexOf(e.value) > -1
         }
       })
     }
@@ -38,6 +43,10 @@ export default {
   },
 
   methods: {
+    /**
+     * @desc click event
+     * @param {number} i index
+     */
     clickHandler (i) {
       this._options[i].checked = !this._options[i].checked
       this.innerValue = this._options.filter(({checked}) => checked).map(({value}) => value)

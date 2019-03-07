@@ -30,9 +30,10 @@
     </swiper> -->
     <x-checker v-model="file">啊实打实大师ad阿萨德啊实打实大师ad阿萨德啊实</x-checker>
     <x-radio v-model="aaaa" :options="options"></x-radio>
+    <x-checkbox v-model="checkbox" :options="options"></x-checkbox>
     <x-input showClear v-model="qwre"></x-input>
     <native-datepicker v-model="date" ></native-datepicker>
-    <x-image-choice :size="2"></x-image-choice>
+    <x-image-choice v-model="images" :size="5"></x-image-choice>
     <x-textarea v-model="qwre" :maxlength="20" placeholder="123" showCount></x-textarea>
     <x-button disabled>123</x-button>
     <music-player></music-player>
@@ -65,6 +66,7 @@ import XImageChoice from '@/public/components/image-choice'
 import NativeDatepicker from '@/public/components/native-datepicker'
 import XInput from '@/public/components/input'
 import XRadio from '@/public/components/radio'
+import XCheckbox from '@/public/components/checkbox'
 import XChecker from '@/public/components/checker'
 import { Swiper, SwiperItem } from '@/public/components/swiper'
 import XCountdown from '@/public/components/countdown'
@@ -75,6 +77,8 @@ import XMask from '@/public/components/mask'
 export default {
   data () {
     return {
+      images: '',
+      checkbox: '1',
       showmask: false,
       start: false,
       options: [{ label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }],
@@ -110,6 +114,7 @@ export default {
     NativeDatepicker,
     XInput,
     XRadio,
+    XCheckbox,
     XChecker,
     Swiper,
     SwiperItem,

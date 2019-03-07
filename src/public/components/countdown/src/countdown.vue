@@ -40,7 +40,7 @@ export default {
     }
   },
 
-  beforeDestory () {
+  beforeDestroy () {
     clearInterval(this.interval)
   }
 }

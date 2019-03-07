@@ -33,7 +33,12 @@ export default {
   },
 
   watch: {
-    value (val) { this.getDefaultValue() },
+    value: {
+      handler (value) {
+        this.innerValue = Array.isArray(value) ? value : this.value ? [value] : []
+      },
+      immediate: true
+    },
 
     innerValue (val) {
       if (!Array.isArray(this.value) && this.size === 1) {
@@ -45,14 +50,6 @@ export default {
   },
 
   methods: {
-    getDefaultValue () {
-      if (Array.isArray(this.value)) {
-        this.innerValue = this.value
-      } else {
-        if (this.value) this.innerValue = [this.value]
-      }
-    },
-
     removeHandler (index) {
       this.innerValue = this.innerValue.filter((o, i) => i !== index)
     },
@@ -73,10 +70,6 @@ export default {
 
       e.target.value = null
     }
-  },
-
-  created () {
-    this.getDefaultValue()
   }
 }
 </script>
@@ -92,6 +85,7 @@ $remove_color: #fff;
 
 @include b (image-choice) {
   display: flex;
+  flex-wrap: wrap;
 
   @include e (item) {
     flex-basis: $imagesize;
