@@ -1,6 +1,6 @@
 <template>
   <div class="c-input" :type="type">
-    <input class="c-input__entity" v-model="innerValue" :type="type" v-bind="$attrs" @input="inputHandler" @focus="focusHandler" @blur="blurHandler">
+    <input class="c-input__entity" v-model="innerValue" :type="type" :placeholder="placeholder" v-bind="$attrs" @input="inputHandler" @focus="focusHandler" @blur="blurHandler">
     <div v-show="clearShow" class="c-input__clear" @click="clearhandler"></div>
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
       }
     },
     format: { type: String, default: '' },
-    showClear: { type: Boolean, default: false }
+    showClear: { type: Boolean, default: false },
+    placeholder: { type: String, default: '请输入' }
   },
 
   computed: {

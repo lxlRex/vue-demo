@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { TIMEOUT, TEST_URL, PRO_URL, ApiStatus } from '../../config'
-import User from '@/public/utils/User'
+import { User } from '@/public/class'
 import LoadingInterceptor from '../interceptors/loading-interceptor'
 import AlertInterceptor from '../interceptors/alert-interceptor'
 import { MessageBox } from '@/public/components'
@@ -8,7 +8,7 @@ import { MessageBox } from '@/public/components'
 // 添加公用配置
 axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? PRO_URL : TEST_URL
 axios.defaults.timeout = TIMEOUT
-// axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=utf-8";
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
 
 let instance = axios.create()
 

@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import Container from './router_container.vue'
+import UserRouter from './sub_router/user_router'
+
 Vue.use(Router)
 const router = new Router({
   // mode: 'history',
@@ -8,6 +12,14 @@ const router = new Router({
       path: '/',
       redirect: {name: 'list'}
     },
+
+    // 用户
+    {
+      path: '/user',
+      component: Container,
+      children: UserRouter
+    },
+
     {
       path: '/list',
       name: 'list',
