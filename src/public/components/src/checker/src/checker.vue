@@ -32,7 +32,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../../../../../../node_modules/SassMagic/src/mixins/BEM';
+@import '~SassMagic/src/mixins/BEM';
 
 $normal_color: #ececec;
 $checked_color: #09bb07;

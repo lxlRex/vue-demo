@@ -30,7 +30,7 @@ export default {
 
   computed: {
     clearShow () {
-      return !this.$attrs.readonly && !this.$attrs.disabled && this.showClear && this.isFocus && this.innerValue !== ''
+      return !this.$attrs.readonly && !this.$attrs.disabled && this.showClear && this.innerValue !== '' && this.isFocus
     }
   },
 
