@@ -4,7 +4,7 @@
     <x-button @click="showmask=true">showDialog</x-button>
     <x-button @click="showLoading">showLoading</x-button>
     <x-button @click="showToast">showToast</x-button>
-   <x-mask v-if="showScrollBox" :show="true">
+   <x-mask v-if="showScrollBox" :show="true" @maskClick="showScrollBox = false">
       <div style="width: 100%;height: 200px;background: #fff;padding: 15px;">
         <x-scroll-box>
           <div style="word-break: break-all;">2121213212121321212132121213212121321212132121213212121321212132121213212121

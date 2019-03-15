@@ -30,7 +30,7 @@ export default {
   methods: {
     countdown () {
       this.interval = setInterval(() => {
-        if (this.currentTime > 0) {
+        if (this.currentTime > 1) {
           this.currentTime--
         } else {
           clearInterval(this.interval)
