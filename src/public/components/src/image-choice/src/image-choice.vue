@@ -75,6 +75,7 @@ export default {
 </script>
 <style lang="scss">
 @import '~SassMagic/src/mixins/BEM';
+@import '../../../style/scss/close';
 
 $imagesize: 100px;
 
@@ -115,35 +116,12 @@ $remove_color: #fff;
   }
 
   @include e (remove) {
-    width: 20px;
-    height: 20px;
     position: absolute;
     top: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.4);
-    cursor: pointer;
     border-bottom-left-radius: 6px;
-
-    &:before{
-      content: '';
-      position: absolute;
-      display: block;
-      width: $remove_width;
-      height: $remove_height;
-      background: $remove_color;
-      transform: rotate(45deg);
-      top: 8px;
-    }
-    &:after{
-      content: '';
-      position: absolute;
-      display: block;
-      width: $remove_width;
-      height: $remove_height;
-      background: $remove_color;
-      transform: rotate(-45deg);
-      top: 8px;
-    }
+    @include close-icon($remove_width, $remove_color)
   }
 
   @include e (icon) {

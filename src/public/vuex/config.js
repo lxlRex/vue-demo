@@ -1,6 +1,6 @@
 import * as mutations from './mutations'
 
-export default{
+export default {
   state: {
     loadingNum: 0
   },
