@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~normalize.css';
 @import '~@/public/css/common.css';
-@import '~@/public/css/normalize.css';
 @import '~@/public/css/rem.css';
 </style>

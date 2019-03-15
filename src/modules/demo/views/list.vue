@@ -11,7 +11,7 @@
       </div>
     </x-mask> -->
 
-    <x-dialog :show.sync="showmask" @maskClick="showmask = false">
+    <x-dialog :show.sync="showmask" @close="showmask = false">
       <div style="word-break: break-all;">
         212121321212132121213212121321212132121213212121321212132121213212
         12132121213212121321212132121213212121321212132121213212121321212132121213212121321
