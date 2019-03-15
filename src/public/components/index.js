@@ -1,8 +1,8 @@
-export { default as Loading } from './Loading'
+export { default as Loading } from './src/Loading'
 
-export { default as Icon } from './icon'
+export { default as Icon } from './src/icon'
 
-export { default as MessageBox } from './MessageBox'
-export { default as Toast } from './Toast'
+export { default as MessageBox } from './src/MessageBox'
+export { default as Toast } from './src/Toast'
 
-export { default as XButton } from './button'
+export { default as XButton } from './src/button'
