@@ -31,4 +31,9 @@ export default class Toast {
     queue.push(msg)
     showToast()
   }
+
+  static close () {
+    queue = []
+    instance.show = false
+  }
 }

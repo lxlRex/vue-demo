@@ -19,8 +19,8 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import '../../../../../../node_modules/SassMagic/src/mixins/BEM';
-@import '../../../../../../node_modules/SassMagic/src/mixins/box-center';
+@import '~SassMagic/src/mixins/BEM';
+@import '~SassMagic/src/mixins/box-center';
 
 @include b (loading) {
 

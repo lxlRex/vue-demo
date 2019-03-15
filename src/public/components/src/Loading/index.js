@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import template from './src/loading'
+import debounce from 'lodash/debounce'
 
 let instance
 let count = 0
@@ -28,6 +29,6 @@ export default class Loading {
   static close () {
     if (!count) return
     count--
-    Vue.nextTick(() => { instance.show = !!count })
+    Vue.nextTick(debounce(() => { instance.show = !!count }, 300))
   }
 }
