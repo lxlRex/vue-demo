@@ -1,6 +1,9 @@
 <template>
   <div class="c-scroll-box" ref="scrollBox" @touchstart="touchstarthandler" @touchmove="touchmoveHandler" @touchend="touchendHandler">
-    <div class="c-scroll-box__container" ref="scrollContainer" :class="{'c-scroll-box__container--transition': transition}" :style="`transform: translate3d(0, ${translateY}px, 0)`">
+    <div class="c-scroll-box__container"
+         ref="scrollContainer"
+         :class="{'c-scroll-box__container--transition': transition}"
+         :style="`transform: translate3d(0, ${translateY}px, 0)`">
       <slot></slot>
     </div>
   </div>
@@ -19,7 +22,7 @@ export default {
   },
 
   props: {
-    flexible: { type: Boolean, default: false }
+    flexible: { type: Boolean, default: true }
   },
 
   methods: {
@@ -66,17 +69,19 @@ export default {
   },
 
   mounted () {
-    this.init()
+    setTimeout(() => (this.init()), 300)
   }
 }
 </script>
 <style lang="scss">
 @import '~SassMagic/src/mixins/BEM';
+
 @include b (c-scroll-box) {
   overflow: hidden;
-  width: 100%;
   height: 100%;
+
   @include e (container) {
+
     @include m (transition) {
       transition: all .2s;
     }

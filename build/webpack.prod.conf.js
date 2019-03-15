@@ -55,7 +55,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       name: true,
       cacheGroups: {
         vendor: {
-          test: /react/, // 直接使用 test 来做路径匹配
+          test: /vue/, // 直接使用 test 来做路径匹配
           chunks: "initial",
           name: "vendor",
           enforce: true,
