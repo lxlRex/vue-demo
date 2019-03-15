@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div @click="showmask=true">2113233</div>
+    <x-button @click="showmask=true">showDialog</x-button>
+    <x-button @click="showLoading">showLoading</x-button>
+    <x-button @click="showToast">showToast</x-button>
    <!--  <x-mask :show.sync="showmask">
       <div style="width: 100%;height: 200px;">
         <x-scroll-box style="background-color: #fff">
@@ -9,8 +11,13 @@
       </div>
     </x-mask> -->
 
-    <x-dialog :show.sync="showmask">
-      <div style="word-break: break-all;">2121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121213212121321212132121</div>
+    <x-dialog :show.sync="showmask" @maskClick="showmask = false">
+      <div style="word-break: break-all;">
+        212121321212132121213212121321212132121213212121321212132121213212
+        12132121213212121321212132121213212121321212132121213212121321212132121213212121321
+        212132121213212121321212132121213212121321212132121213212121321212132121213212121
+        32121213212121321212132121213212121321212132121
+      </div>
     </x-dialog>
 
    <!--  <x-dialog>
@@ -73,6 +80,7 @@ import XCountdown from '@/public/components/src/countdown'
 import XDialog from '@/public/components/src/dialog'
 import XScrollBox from '@/public/components/src/scroll-box'
 import XMask from '@/public/components/src/mask'
+import Loading from '@/public/components/src/Loading'
 
 export default {
   data () {
@@ -85,18 +93,26 @@ export default {
       date: '',
       aaaa: '1',
       qwre: '',
-      file: false,
-      queryData: {
-        pageSize: 99999,
-        addr: '全国',
-        condition: '',
-        brandId: '',
-        orderNo: 0,
-        downPaymentMin: 0,
-        downPaymentMax: '',
-        mouthPaymentMin: 0,
-        mouthPaymentMax: ''
-      }
+      file: false
+    }
+  },
+
+  methods: {
+    show () {
+      MessageBox.alert(123)
+    },
+
+    showLoading () {
+      Loading.show()
+      setTimeout(Loading.close, 3000)
+    },
+
+    showToast () {
+      Toast.show('呵呵')
+    },
+
+    qwe () {
+      Toast.show('21333')
     }
   },
 
@@ -129,38 +145,6 @@ export default {
   },
 
   created () {
-
-    // axios.get('http://10.33.93.37:3000/users').then(data => {
-    //  console.log(data)
-    // });
-
-    // axios.post('http://10.33.93.37:3000/users/login',{username: 'vvv',password: 'zzz'}).then(data => {
-    //  console.log(data)
-    // });
-
-    // HomepagePaginate(this.queryData).then(data => {
-    //   console.log(data)
-    // })
-  },
-
-  methods: {
-    preview (e) {
-      let file = e.target.files[0]
-      if (!e.target.files[0]) return
-      let formdata = new FormData()
-      formdata.append('file', file)
-      // axios.post('http://10.33.93.37:3000/users/setHead', formdata).then(data => {
-      //   console.log(data)
-      // })
-    },
-
-    show () {
-      MessageBox.alert(123)
-    },
-
-    qwe () {
-      Toast.show('21333')
-    }
   }
 }
 </script>

@@ -27,16 +27,10 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../../../../../../node_modules/SassMagic/src/mixins/BEM';
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
+@import '~SassMagic/src/mixins/BEM';
+@import '../../../style/fade.css';
 
 @include b (c-toast) {
-  width: 300px;
   border-radius: 5px;
   position: fixed;
   top: 50%;
@@ -44,17 +38,12 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 999;
   box-shadow: 0 1px 10px rgba(0, 0, 0, .5);
-  display: none;
-
-  @include m (show) {
-    display: block;
-  }
 
   @include e (text) {
     text-align: center;
     border-radius: 5px;
     background: rgba(0, 0, 0, .7);
-    padding: 10px 8px;
+    padding: 10px 15px;
     color: #fff;
     word-break: break-word;
     font-size: 14px;
