@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
-    <div v-show="show" class="c-toast" >
+    <section v-show="show" class="c-toast" >
       <div class="c-toast__text">{{msg}}</div>
-    </div>
+    </section>
   </transition>
 </template>
 <script>

@@ -9,11 +9,13 @@
 <script>
 export default {
   name: 'icon',
+
   props: {
     icon: String,
     color: {type: String, default: 'currentColor'},
     size: {type: String, default: '16px'}
   },
+
   computed: {
     style () {
       return `fill: ${this.color};font-size: ${this.size};`
@@ -21,10 +23,10 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       overflow: hidden;
-    }
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    overflow: hidden;
+  }
 </style>
