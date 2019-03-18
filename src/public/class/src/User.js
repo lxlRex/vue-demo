@@ -2,7 +2,7 @@ import { LOGIN_URL } from '@DEMO/config/pages'
 
 const USER_INFO = 'user_info'
 export default class User {
-  static token = ''
+  static userInfo = {}
 
   /**
    * @desc 获取用户信息
@@ -17,7 +17,7 @@ export default class User {
    * @param userInfo {Object}
    */
   static login (userInfo) {
-    localStorage.setItem('userInfo', JSON.stringify(userInfo))
+    localStorage.setItem(USER_INFO, JSON.stringify(userInfo))
     Object.assign(this, userInfo)
     return Promise.resolve(userInfo)
   }
@@ -43,7 +43,7 @@ export default class User {
    * @return {Boolean}
    */
   static isLogin () {
-    if (this.token) {
+    if (this.userInfo.token) {
       return true
     } else {
       let { token = false } = this.getUserInfo()
