@@ -6,7 +6,7 @@ import UserRouter from './sub_router/user_router'
 
 Vue.use(Router)
 const router = new Router({
-  // mode: location.href.indexOf('#') > -1 ? 'hash' : 'history',
+  mode: location.href.indexOf('#') > -1 ? 'hash' : 'history',
   base: '/demo',
   routes: [
     {

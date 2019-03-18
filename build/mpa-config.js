@@ -48,7 +48,7 @@ exports.getDevConfig = function () {
       : undefined
   }))
 
-  return { plugin, entry }
+  return { plugin, entry, rewrites }
 }
 
 exports.getProConfig = function (module) {
