@@ -22,7 +22,7 @@ export default class Utils {
    * @param format {String} format
    * @return {String} 结果
    */
-  dateFormat (value, format = 'yyyy-MM-dd hh:mm:ss') {
+  static dateFormat (value, format = 'yyyy-MM-dd hh:mm:ss') {
     if (Object.prototype.toString.call(value) === '[object Date]') {
       value = value.replace(/-/g, '/')
     }

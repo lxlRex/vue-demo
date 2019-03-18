@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import messageBox from './src/messageBox'
+import template from './src/messageBox'
 
 let instance = null
 
 function showMessageBox (opt) {
   if (!instance) {
-    let AlertConstructor = Vue.extend(messageBox)
+    let AlertConstructor = Vue.extend(template)
     instance = new AlertConstructor()
     document.body.appendChild(instance.$mount().$el)
   }
@@ -18,11 +18,11 @@ function showMessageBox (opt) {
 
   instance.$off('cancel').$on('cancel', (...args) => {
     cancelCallback && cancelCallback.apply(null, args)
-    this.close()
+    MessageBox.close()
   })
   instance.$off('confirm').$on('confirm', (...args) => {
     confirmCallback && confirmCallback.apply(null, args)
-    this.close()
+    MessageBox.close()
   })
 
   Vue.nextTick(() => {
@@ -30,14 +30,14 @@ function showMessageBox (opt) {
   })
 }
 
-export default {
+export default class MessageBox {
   /**
    * @desc alert
    * @param {string} msg
    * @param {string} confirmBtn
    * @return {Promise<any>}
    */
-  alert (msg, confirmBtn = '确认') {
+  static alert (msg, confirmBtn = '确认') {
     return new Promise(resolve => {
       showMessageBox({
         msg: msg,
@@ -46,7 +46,7 @@ export default {
         confirmBtn: confirmBtn
       })
     })
-  },
+  }
 
   /**
    * @desc confirm
@@ -55,7 +55,7 @@ export default {
    * @param {string} cancelBtn
    * @return {Promise<any>}
    */
-  confirm (msg, confirmBtn = '确认', cancelBtn = '取消') {
+  static confirm (msg, confirmBtn = '确认', cancelBtn = '取消') {
     return new Promise((resolve, reject) => {
       showMessageBox({
         msg: msg,
@@ -66,9 +66,9 @@ export default {
         cancelBtn: cancelBtn
       })
     })
-  },
+  }
 
-  close () {
+  static close () {
     instance.show = false
   }
 }
