@@ -9,6 +9,7 @@
 import XInput from '@/public/components/src/input'
 import XButton from '@/public/components/src/button'
 import { login } from '@DEMO/api/user'
+import { User } from '@/public/class'
 
 export default {
   data () {
@@ -23,7 +24,14 @@ export default {
   methods: {
     async login () {
       let {data} = await login(this.loginData)
-      console.log(data)
+
+      await User.login(data)
+
+      if (this.$route.query.backUrl) {
+        location.href = decodeURIComponent(this.$route.query.backUrl)
+      } else {
+        this.$router.push({name: 'Home'})
+      }
     }
   },
 

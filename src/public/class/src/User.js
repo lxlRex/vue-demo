@@ -1,54 +1,60 @@
-import router from '../../router'
+import { LOGIN_URL } from '@DEMO/config/pages'
 
 const USER_INFO = 'user_info'
 export default class User {
   static token = ''
 
   /**
-   *@ desc 获取用户信息
-   *@ return {Object}
+   * @desc 获取用户信息
+   * @return {Object}
    */
   static getUserInfo () {
-    return Promise.reslove(JSON.parse(localStorage.getItem(USER_INFO) || '{}'))
+    return JSON.parse(localStorage.getItem(USER_INFO) || '{}')
   }
 
   /**
-   *@ desc 登录存入用户信息
-   *@ param userInfo {Object}
+   * @desc 登录存入用户信息
+   * @param userInfo {Object}
    */
   static login (userInfo) {
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
     Object.assign(this, userInfo)
-    return Promise.reslove(userInfo)
+    return Promise.resolve(userInfo)
   }
 
   /**
-   *@ desc 登出清空token
+   * @desc 清空UserInfo
    */
-  static async logout () {
-    let userInfo = await this.getUserInfo()
-    delete userInfo.token
-    localStorage.setItem(USER_INFO, JSON.stringify(userInfo))
+  static claerUserInfo () {
+    localStorage.removeItem(USER_INFO)
   }
 
   /**
-   *@ desc 是否登录
-   *@ return {Boolean}
+   * @desc 登出
+   * @param {string} callBack 回调地址
    */
-  static async isLogin () {
+  static logout (callBack) {
+    this.claerUserInfo()
+    if (callBack) location.href = callBack
+  }
+
+  /**
+   * @desc 是否登录
+   * @return {Boolean}
+   */
+  static isLogin () {
     if (this.token) {
-      return Promise.reslove(true)
+      return true
     } else {
-      let { token = false } = await this.getUserInfo()
-      return Promise.reslove(Boolean(token))
+      let { token = false } = this.getUserInfo()
+      return Boolean(token)
     }
   }
 
   /**
-   *@ desc 去登录
+   * @desc 跳转登录页
    */
-  static toLogin () {
-    this.logout()
-    router.push({path: `login?backURL=${encodeURIComponent(location.href)}`})
+  static toLogin (backUrl = location.href) {
+    location.href = LOGIN_URL({backUrl})
   }
 }
