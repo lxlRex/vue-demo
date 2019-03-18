@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import { dateFormat } from '../../../../utils/utils'
+import { Utils } from '@/public/class'
 const types = {
   date: 'yyyy-MM-dd',
   month: 'yyyy-MM',
@@ -38,7 +38,7 @@ export default {
   watch: {
     value: {
       handler (val) {
-        this.innerValue = val ? dateFormat(val, types[this.type]) : ''
+        this.innerValue = val ? Utils.dateFormat(val, types[this.type]) : ''
       },
       immediate: true
     },
