@@ -32,7 +32,7 @@ exports.getDevConfig = function () {
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
-      chunksSortMode: 'none'
+      chunksSortMode: 'auto'
     }))
 
     rewrites.push({from: new RegExp(`^/${item}/.*`), to: `/${item}/index.html`})
@@ -76,7 +76,7 @@ exports.getProConfig = function (module) {
     },
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
     // chunksSortMode: 'dependency',
-    chunksSortMode: 'none',
+    chunksSortMode: 'auto',
     process: {
       env: require('../config/prod.env')
     }
