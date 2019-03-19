@@ -15,7 +15,7 @@ export default {
   Firefox: u.indexOf('Firefox') > -1 || u.indexOf('FxiOS') > -1,
   QQ: u.indexOf('QQ/') > -1,
   Wechat: u.indexOf('MicroMessenger') > -1,
-  QQBrowse: u.indexOf(' QQ') > -1 || u.indexOf(' qq') > -1,
+  QQBrowse: u.indexOf('MQQBrowser') > -1,
   Taobao: u.indexOf('AliApp(TB') > -1,
   Alipay: u.indexOf('AliApp(AP') > -1,
   Weibo: u.indexOf('Weibo') > -1,
