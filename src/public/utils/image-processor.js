@@ -1,6 +1,6 @@
 /**
  * @desc 获取图片
- * @param {file} file 文件
+ * @param {Blob} file 文件
  * @return {promise}
  */
 function getImage (file) {
@@ -15,11 +15,11 @@ function getImage (file) {
       }
 
       image.onerror = function () {
-        reject(new Error('Error: load image faile'))
+        reject(new Error('Error: load image failed'))
       }
     }
     fr.onerror = function () {
-      reject(new Error('Error: readAsDataURL faile'))
+      reject(new Error('Error: readAsDataURL failed'))
     }
   })
 }
@@ -47,7 +47,7 @@ function getBase64 (image, quality) {
 /**
  * @desc base64转blob
  * @param {urlData} urlData base64
- * @return {blob}
+ * @return {Blob}
  */
 function convertBase64UrlToBlob (urlData) {
   let arr = urlData.split(',')
@@ -63,7 +63,7 @@ function convertBase64UrlToBlob (urlData) {
 
 /**
  * @desc 压缩图片
- * @param {file} file 图片文件
+ * @param {Blob} file 图片文件
  * @param {number} quality 压缩比例
  * @return {blob}
  */

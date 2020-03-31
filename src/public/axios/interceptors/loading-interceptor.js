@@ -15,7 +15,11 @@ const install = axios => {
 
   axios.interceptors.response.use(
     response => {
-      Loading.close()
+      let {
+        config: { showLoading = true }
+      } = response
+
+      if (showLoading) Loading.close()
       return response.data
     },
     error => {

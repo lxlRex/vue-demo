@@ -61,11 +61,15 @@ export default {
       let files = e.target.files
       let compressFiles = await compressImages(files)
 
-      compressFiles.forEach(async ({compressFile, name}) => {
+      let uploadOneFile = async ({compressFile, name}) => {
         let fd = new FormData()
         fd.append('imgFile', compressFile, name)
         let { data: { data } } = await axios.post('//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do', fd)
         this.innerValue.push(data)
+      }
+
+      compressFiles.forEach(e => {
+        uploadOneFile(e)
       })
 
       e.target.value = null
