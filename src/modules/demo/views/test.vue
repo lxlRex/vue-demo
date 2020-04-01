@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="hide">
     1111111111111123
   </div>
 </template>
@@ -14,6 +14,14 @@ export default {
   },
 
   components: {
+  },
+
+  methods: {
+    hide () {
+      window.opener = null
+      window.open('', '_self')
+      window.close()
+    }
   },
 
   mounted () {

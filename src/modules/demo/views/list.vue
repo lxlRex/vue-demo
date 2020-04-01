@@ -120,7 +120,9 @@ export default {
     },
 
     showToast () {
-      Toast.show('呵呵')
+      // Toast.show('呵呵')
+
+      window.open('http://kdjd.ycode.cn/api/sso/login?username=hgkz1&ssoCookieKey=2cba9153-ce5f-4c79-8248-4dea07dd9190&confId=1150392')
     },
 
     qwe () {
