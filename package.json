@@ -20,6 +20,7 @@
     "lodash": "^4.17.11",
     "mand-mobile": "^1.6.4",
     "normalize.css": "^8.0.1",
+    "ramda": "^0.27.0",
     "vue": "^2.5.2",
     "vue-concise-slider": "^3.3.8",
     "vue-lazyload": "^1.2.6",
