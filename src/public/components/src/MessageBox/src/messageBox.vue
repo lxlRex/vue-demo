@@ -42,17 +42,18 @@ export default {
     color: #333;
   }
 
-  @include e (btnBox) {
-    display: flex;
-  }
-
   @include e (btn) {
-    flex: 1;
     color: #3577cd;
     text-align: center;
     line-height: 44px;
     border-top: 1px solid #EFEFF4;
     font-size: 14px;
+
+    & > div {
+      width: 49%;
+      display: inline-block;
+      cursor: pointer;
+    }
 
     @include m (cancel) {
       border-right: 1px solid #EFEFF4;
