@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import { not, filter, map, indexOf, gt, prop } from 'ramda'
+import { not, filter, map, indexOf, gt, prop, compose } from 'ramda'
 
 export default {
   data () {
@@ -53,7 +53,8 @@ export default {
      */
     clickHandler (i) {
       this._options[i].checked = not(this._options[i].checked)
-      this.innerValue = map(prop('value'), filter(prop('checked'), this._options))
+      // this.innerValue = map(prop('value'), filter(prop('checked'), this._options))
+      this.innerValue = compose(map(prop('value')), filter(prop('checked')))(this._options)
       // this._options.filter(({checked}) => checked).map(({value}) => value)
     }
   }

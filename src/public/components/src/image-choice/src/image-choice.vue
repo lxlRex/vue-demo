@@ -17,6 +17,7 @@
 <script>
 import axios from 'axios'
 import { compressImages } from '../../../../utils/image-processor'
+import { is, isEmpty } from 'ramda'
 
 export default {
   data () {
@@ -35,7 +36,7 @@ export default {
   watch: {
     value: {
       handler (value) {
-        this.innerValue = Array.isArray(value) ? value : this.value ? [value] : []
+        this.innerValue = is(Array, value) ? value : isEmpty(this.value) ? [] : [value]
       },
       immediate: true
     },
@@ -68,9 +69,7 @@ export default {
         this.innerValue.push(data)
       }
 
-      compressFiles.forEach(e => {
-        uploadOneFile(e)
-      })
+      compressFiles.forEach(uploadOneFile)
 
       e.target.value = null
     }
