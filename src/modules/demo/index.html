@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="no">
     <meta name="format-detection" content="telephone=no, email=no, address=no">
     <title>vue-demo</title>
-    <script type="text/javascript" src="<%=htmlWebpackPlugin.options.process.env.vueRuntime%>"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/combine/npm/vue-router@3.0.1/dist/vue-router.min.js,npm/vuex@3.0.1/dist/vuex.min.js,npm/axios@0.18.0/dist/axios.min.js"></script>
+<!--    <script type="text/javascript" src="<%=htmlWebpackPlugin.options.process.env.vueRuntime%>"></script>-->
+<!--    <script type="text/javascript" src="//cdn.jsdelivr.net/combine/npm/vue-router@3.0.1/dist/vue-router.min.js,npm/vuex@3.0.1/dist/vuex.min.js,npm/axios@0.18.0/dist/axios.min.js"></script>-->
   </head>
   <body>
     <div id="app"></div>
@@ -17,8 +17,8 @@
 </html>
 <!--<script type="text/javascript" src="//at.alicdn.com/t/font_495868_c16w12whnxqd7vi.js"></script>-->
 <% if (htmlWebpackPlugin.options.process.env.NODE_ENV !== '"production"') {%>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/eruda"></script>
-  <script type="text/javascript">
-    eruda.init()
-  </script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script type="text/javascript">
+  eruda.init()
+</script>
 <% } %>

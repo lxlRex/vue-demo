@@ -6,8 +6,8 @@ import router from './router'
 
 import mixins from '@/public/mixins'
 
-import mandMobile from 'mand-mobile'
-import 'mand-mobile/lib/mand-mobile.css'
+// import mandMobile from 'mand-mobile'
+// import 'mand-mobile/lib/mand-mobile.css'
 
 import { transferDom } from '@/public/directives'
 
@@ -16,7 +16,7 @@ import { transferDom } from '@/public/directives'
 Vue.mixin(mixins)
 // Vue.use(plugins);
 
-Vue.use(mandMobile)
+// Vue.use(mandMobile)
 
 Vue.directive('transferDom', transferDom)
 
@@ -26,6 +26,6 @@ Vue.config.productionTip = process.env.NODE_ENV !== 'production'
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  render: h => h('App')
+  // components: { App },
+  render: h => h(App)
 })

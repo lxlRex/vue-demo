@@ -42,7 +42,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       new OptimizeCSSAssetsPlugin({})
     ],
     runtimeChunk: {
-      name: 'manifest'
+      name: 'runtime'
     },
     splitChunks: {
       chunks: 'async',

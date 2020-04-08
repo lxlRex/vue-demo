@@ -26,10 +26,10 @@ module.exports = {
     // demo: './src/modules/demo/main.js'
   },
   externals: {
-    'vue': 'Vue',
-    'vuex': 'Vuex',
-    'vue-router': 'VueRouter',
-    'axios': 'axios'
+    // 'vue': 'Vue',
+    // 'vuex': 'Vuex',
+    // 'vue-router': 'VueRouter',
+    // 'axios': 'axios'
   },
   output: {
     path: config.build.assetsRoot,
@@ -41,7 +41,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue$': process.env.NODE_ENV === 'production'
+        ? config.build.vue
+        : config.dev.vue,
       '@': resolve('src'),
       '@DEMO': resolve('src/modules/demo')
     }

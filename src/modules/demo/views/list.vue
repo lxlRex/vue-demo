@@ -57,7 +57,7 @@
     <music-player></music-player>
     <!-- <l-icon icon="qicon-home" color="red" size="20px"></l-icon> -->
     <!-- <input type="file" name="" @change="preview($event)"> -->
-    <md-button icon="spinner" size="small" type="link">123</md-button>
+<!--    <md-button icon="spinner" size="small" type="link">123</md-button>-->
     <div @click="show" class="test" @touchstart="() => {}" ref="test">12123123323</div>
     <abbr title="123dfsdfsds">www</abbr>
     <kbd>quit</kbd>
