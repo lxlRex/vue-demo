@@ -55,16 +55,17 @@ const webpackConfig = merge(baseWebpackConfig, {
       name: true,
       cacheGroups: {
         vendor: {
-          test: /vue/, // 直接使用 test 来做路径匹配
-          chunks: "initial",
-          name: "vendor",
-          enforce: true,
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+          priority: -10
         },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
+        vue: {
+          name: "vue",
+          test: /[\\/]node_modules[\\/](vue|vue-router)[\\/]/,
+          chunks: "all",
+          priority: 9
+        },
       }
     }
   },

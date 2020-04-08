@@ -7,5 +7,8 @@ module.exports = {
     ["@babel/plugin-transform-runtime"],
     "@babel/plugin-syntax-dynamic-import",
     "babel-plugin-transform-vue-jsx",
+    ["ramda", {
+      "useES": true
+    }]
   ]
 }

@@ -59,7 +59,7 @@ exports.getProConfig = function (module) {
   let output = {
     path: path.join(config.build.assetsRoot, module),
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    chunkFilename: utils.assetsPath('js/[name].[chunkhash].js')
     // publicPath: path.join('/', module, '/')
   }
 

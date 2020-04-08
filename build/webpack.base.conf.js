@@ -41,9 +41,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': process.env.NODE_ENV === 'production'
-        ? config.build.vue
-        : config.dev.vue,
+      // 'vue$': process.env.NODE_ENV === 'production'
+      //   ? config.build.vue
+      //   : config.dev.vue,
       '@': resolve('src'),
       '@DEMO': resolve('src/modules/demo')
     }
