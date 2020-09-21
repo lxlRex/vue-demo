@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import template from './src/toast.vue'
+import Queue from '@/public/utils/Queue'
 
 let instance = null
-let queue = []
-let Constuctor = Vue.extend(template)
+const queue = new Queue()
+const Constuctor = Vue.extend(template)
 
 let initInstance = () => {
   instance = new Constuctor({el: document.createElement('div')})
@@ -16,11 +17,11 @@ let showToast = () => {
   }
 
   if (instance.show) return
-  let msg = queue.shift()
+  const msg = queue.dequeue()
 
   instance.$off('close').$on('close', () => {
     instance.show = false
-    if (queue.length) setTimeout(showToast, 100)
+    if (!queue.isEmpity()) setTimeout(showToast, 100)
   })
   instance.msg = msg
   instance.show = true
@@ -28,12 +29,12 @@ let showToast = () => {
 
 export default class Toast {
   static show (msg) {
-    queue.push(msg)
+    queue.enqueue(msg)
     showToast()
   }
 
   static close () {
-    queue = []
+    queue.clear()
     instance.show = false
   }
 }
