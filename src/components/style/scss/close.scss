@@ -1,0 +1,25 @@
+@mixin close-icon($close_size: 20px, $remove_color: #666) {
+  width: $close_size;
+  height: $close_size;
+
+  &:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: $close_size;
+    height: 2px;
+    background: $remove_color;
+    transform: rotate(45deg);
+    top: 8px;
+  }
+  &:after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: $close_size;
+    height: 2px;
+    background: $remove_color;
+    transform: rotate(-45deg);
+    top: 8px;
+  }
+}
